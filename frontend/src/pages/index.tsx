@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import CardBoard from '@/components/cardboard'
-
-const inter = Inter({ subsets: ['latin'] })
+import GameContainer from '@/components/game_container'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 export default function Home() {
   return (
@@ -14,9 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className='container mx-auto px-4 py-4'>
-          <CardBoard />
-        </div>
+        <Header />
+        <GameContainer />
+        <Footer />
       </main>
     </>
   )
