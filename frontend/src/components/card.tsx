@@ -1,13 +1,37 @@
-import Image from 'next/image'
-  
-  export default function Card(props: any) {
-    return <div className="group max-w-sm overflow-hidden shadow-lg">
-            <Image className="w-full" src={props.image} alt="" width={100}
-            height={100} />
-            <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 text-center">{props.name}</div>
-                <button className="my-2 hidden group-hover:block text-white font-bold py-2 px-4 w-full rounded bg-green-500 hover:bg-green-700">Choose</button>
-                <button className="my-2 hidden group-hover:block text-white font-bold py-2 px-4 w-full rounded bg-blue-500 hover:bg-blue-700">Flip</button>
-            </div>
-        </div>
-  }
+import React, { useState } from "react"
+import ReactCardFlip from 'react-card-flip';
+import Image from "next/image";
+
+function FrontCard(props: any) {
+    return (
+      <div className="w-36 overflow-hidden shadow-lg h-52 text-xs" onClick={() => props.setIsFlipped(!props.isFlipped)} >
+          <Image className="w-full h-36" priority src={props.image} alt="" width={100}
+          height={100} />
+          <div className="px-6 py-4 h-12">
+              <div className="font-bold text-center text-sm">{props.name}</div>
+          </div>
+      </div>
+    )
+}
+
+function BackCard(props: any) {
+    return (
+      <div className="w-36 overflow-hidden shadow-lg h-52 content-center text-xs" onClick={() => props.setIsFlipped(!props.isFlipped)}>
+        <Image className="w-full my-8" priority src='/cards/back-card.png' alt="" width={100}
+          height={100} />
+      </div>
+    )
+}
+
+function Card(props: any) {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    return (
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+            <FrontCard name={props.name} image={props.image} isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
+            <BackCard isFlipped={isFlipped} setIsFlipped={setIsFlipped} />
+        </ReactCardFlip>
+    );
+}
+
+export default Card;

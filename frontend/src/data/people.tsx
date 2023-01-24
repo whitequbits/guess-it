@@ -25,7 +25,7 @@ export const people: IPeople[] = [
         '/avatars/avatar-4.png',
     },
     {
-      name: 'Robert',
+      name: 'Kevin',
       image:
         '/avatars/avatar-5.png',
     },
@@ -38,5 +38,30 @@ export const people: IPeople[] = [
       name: 'Denis',
       image:
         '/avatars/avatar-7.png',
+    },
+    {
+      name: 'Julia',
+      image:
+        '/avatars/avatar-8.png',
+    },
+    {
+      name: 'Marco',
+      image:
+        '/avatars/avatar-9.png',
+    },
+    {
+      name: 'Agnes',
+      image:
+        '/avatars/avatar-10.png',
+    },
+    {
+      name: 'Tisha',
+      image:
+        '/avatars/avatar-11.png',
+    },
+    {
+      name: 'Rudy',
+      image:
+        '/avatars/avatar-12.png',
     },
   ]
